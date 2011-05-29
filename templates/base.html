@@ -1,0 +1,81 @@
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"><head>
+  
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="es" />
+    <meta name="author" content="USMGames" />
+    <meta name="copyright" content="GPL" lang="cs" />
+    <meta name="description" content="Workshop USMGames 2011" />
+    <meta name="keywords" content="usmgames utfsm games workshop videojuegos juegos programacion" />
+    <meta name="robots" content="all,follow" />
+    <link href="{{ STATIC_URL }}css/screen.css" type="text/css" rel="stylesheet" media="screen,projection" /><!--[if lte IE 6]>
+    <link href="{{ STATIC_URL }}css/msie.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <![endif]-->
+    
+    <link rel="stylesheet" media="print" type="text/css" href="{{ STATIC_URL }}css/print.css" /><title>WorkShop USMGames 2011</title></head><body>
+
+    <div id="layout">
+      
+      <div id="header">
+        
+        <h1 id="logo"><a href="/" title="Workshop">USMGames<span class="light">Workshop</span><span class="leaf">&nbsp;</span></a></h1>
+        <hr class="noscreen" />   
+     
+        <p class="noscreen noprint">
+          <em>Skip to <a href="#obsah">content</a>, <a href="#nav">navigation</a>.</em>
+        </p>
+      
+      <hr class="noscreen" />
+      
+      <div id="nav" class="box">
+        <ul>
+          <li><a href="/">Home<br /><span>Main page</span></a></li>
+          <li><a href="/registrar">Registrate<br /><span>Asegura tu puesto<br />
+</span></a></li>
+          
+  <ul>
+    <ul>
+      <li><a href="/pago">Paga<br /><span>Envianos tu comprobante<br />
+</span></a></li>
+    </ul>
+  </ul>
+
+					<li><a href="/lista">Asistentes<br /><span>Solo confirmandos<br />
+</span></a></li>
+					<li><a href="/">Lugar<br /><span>Como llegar y demases<br />
+</span></a></li>
+					<li><a href="/">Contacto<br /><span>wasap!<br />
+</span></a></li>
+				</ul>
+        <hr class="noscreen" />
+      </div> 
+        
+      <div id="container" class="box">
+      <div id="obsah" class="content box">
+		{% block content %}{% endblock %}
+	  </div>
+        <div id="panel-left" class="box panel">
+          <div class="in">
+          
+          <p>
+            <span>29/05/2011</span><br />Sitio arriba<br />
+
+          </p>
+          
+          <p>
+            <span>28/05/2011</span><br />Code Ready
+          </p>
+
+          </div>
+        </div>
+      
+      </div>
+        
+        <div id="footer">
+          <span class="f-left">© 2011 <a href="/">USMGames</a></span> <span class="f-right">Design: <a href="http://www.davidkohout.cz">David Kohout</a> | Our tip <a href="http://www.efektim.com" title="Efektim - Real Estate Consulting">Efektim Real Estate</a></span>
+        </div>
+    </div></div>
+  </body></html>

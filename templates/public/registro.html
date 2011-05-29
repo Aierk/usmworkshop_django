@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Registro Preliminar</h1>
+
+<p>
+Una vez complatado este registro tu asistencia quedara pendiente a la espera del recibo del pago. El pago debera ser realizado via deposito o transferencia bancaria
+a la siguiente cuenta:<br />
+Persona X con datos X<br />
+
+Una vez realizado este registro recibiras un codigo de seguimiento el cual debes utilizar a la hora de subir tu comprobante de pago
+</p>
+
+<form action="" method="post">
+{% csrf_token %}
+<h2>
+{% for e in form.non_field_errors %}
+{{ e }}
+{% endfor %}
+</h2>
+
+{% for field in form %} 
+<p>{{ field.label_tag }}: {{ field }} {{ field.help_text }}</p> 
+
+{% endfor %}
+
+<input type="submit" value="Registrar" />
+
+</form>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for persona in personas %}
+{{ persona.nombre }} {{ persona.apellido}} {{persona.email_enc}} {{ persona.get_skill_display }}
+{% endfor %}
+{% endblock %}
