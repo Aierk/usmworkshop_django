@@ -9,21 +9,25 @@ Persona X con datos X<br />
 
 Una vez realizado este registro recibiras un codigo de seguimiento el cual debes utilizar a la hora de subir tu comprobante de pago
 </p>
-
+<div id="stylized" class="myform">
 <form action="" method="post">
 {% csrf_token %}
-<h2>
+<h2 style="color:#FF8040;">
 {% for e in form.non_field_errors %}
 {{ e }}
 {% endfor %}
 </h2>
 
-{% for field in form %} 
-<p>{{ field.label_tag }}: {{ field }} {{ field.help_text }}</p> 
-
+{% for field in form %}
+<label>{{ field.label_tag }}
+<span class="small">{{ field.help_text}}</span>
+</label>
+{{ field }}
 {% endfor %}
 
-<input type="submit" value="Registrar" />
+<button type="submit">Registrar</button>
+<div class="spacer"></div>
 
 </form>
+</div>
 {% endblock %}

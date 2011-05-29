@@ -1,20 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Enviar compobante de pago</h1>
+
+<p>
+Una vez enviado la copia del comprobante de pago tendras que esperar aprobacion
+</p>
+
+<div id="stylized" class="myform">
 <form action="" method="post" enctype="multipart/form-data">
 {% csrf_token %}
-
+<h2 style="color:#FF8040;">
 {% for e in form.non_field_errors %}
 {{ e }}
 {% endfor %}
+</h2>
 
-
-{% for field in form %} 
-<p>{{ field.label_tag }}: {{ field }} {{ field.help_text }}</p> 
-
+{% for field in form %}
+<label>{{ field.label_tag }}
+<span class="small">{{ field.help_text}}</span>
+</label>
+{{ field }}
 {% endfor %}
 
-<input type="submit" value="Registrar" />
+<button type="submit">Enviar Comprobante</button>
+<div class="spacer"></div>
 
 </form>
+</div>
 {% endblock %}
