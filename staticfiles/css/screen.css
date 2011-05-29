@@ -57,7 +57,7 @@ h5 { font-size:100%; }
         left: 0; top: 20px; 
         z-index: 1; 
         width: 120px; height: 80px;
-        background: url('../img/leaf.gif') 45px 5px no-repeat; 
+/*        background: url('http://usmgames.cl/images/logoUSMGs.png') 45px 5px no-repeat;*/
         cursor: pointer;
       }
       
@@ -190,6 +190,7 @@ padding:14px;
 
 /* ----------- stylized ----------- */
 #stylized{
+line-height: 12px;
 border:solid 2px #b7ddf2;
 background:#ebf4fb;
 color:#666666;
@@ -229,18 +230,10 @@ border:solid 1px #aacfe4;
 width:200px;
 margin:2px 0 20px 10px;
 }
-/*
-#stylized input[type=checkbox]{
-float:left;
-font-size:12px;
-padding:4px 2px;
-padding-right:100px;
-border:solid 1px #aacfe4;
-width:200px;
-margin:2px 0 20px 10px;
-}
-*/
 
+#stylized input[type="checkbox"]{
+border: 0;
+}
 
 #stylized select{
 float:left;
@@ -262,3 +255,11 @@ color:#FFFFFF;
 font-size:11px;
 font-weight:bold;
 }
+
+
+/* LIST #2 */
+#list2 { width:320px; }
+#list2 ol { font-style:italic; font-family:Georgia, Times, serif; font-size:24px; color:#bfe1f1;  }
+#list2 ol li { }
+#list2 ol li p { padding:8px; font-style:normal; font-family:Arial; font-size:13px; color:#eee; border-left: 1px solid #999; }
+#list2 ol li p em { display:block; }

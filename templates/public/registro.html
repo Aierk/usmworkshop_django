@@ -3,23 +3,20 @@
 <h1>Registro Preliminar</h1>
 
 <p>
-Una vez complatado este registro tu asistencia quedara pendiente a la espera del recibo del pago. El pago debera ser realizado via deposito o transferencia bancaria
-a la siguiente cuenta:<br />
-Persona X con datos X<br />
+Una vez complatado este registro tu asistencia quedara pendiente a la espera del recibo del pago. El pago debera ser realizado via deposito o transferencia bancaria y deberas subir el comprobante de pago en <a href="/pago/"> el siguiente link.</a>
 
-Una vez realizado este registro recibiras un codigo de seguimiento el cual debes utilizar a la hora de subir tu comprobante de pago
+Una vez realizado este registro recibiras un codigo de seguimiento el cual debes utilizar a la hora de subir tu comprobante de pago.
 </p>
 <div id="stylized" class="myform">
-<form action="" method="post">
-{% csrf_token %}
 <h2 style="color:#FF8040;">
 {% for e in form.non_field_errors %}
 {{ e }}
 {% endfor %}
 </h2>
-
+<form action="" method="post">
+{% csrf_token %}
 {% for field in form %}
-<label>{{ field.label_tag }}
+<label>{{ field.label }}
 <span class="small">{{ field.help_text}}</span>
 </label>
 {{ field }}

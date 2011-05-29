@@ -1,7 +1,28 @@
 {% extends "base.html" %}
-
 {% block content %}
+{% if personas %}
+<h1>Personas Confirmadas</h1>
+<table>
+ <thead>
+  <tr>
+  <th>Nombre</th>
+  <th>Correo</th>
+  <th>Habilidad</th>
+  <th>Grupo</th>
+  </tr>
+  </thead>
+ <tbody>
 {% for persona in personas %}
-{{ persona.nombre }} {{ persona.apellido}} {{persona.email_enc}} {{ persona.get_skill_display }}
+  <tr>
+  <th>{{ persona.nombre }} {{ persona.apellido }}</th>
+  <th>{{ persona.email_enc }}</th>
+  <th>{{ persona.get_skill_display }}</th>
+  <th>{{ persona.equipo }}</th>
+  </tr>
 {% endfor %}
+ </tbody>
+</table>
+{% else %}
+<h2>Aun no hay participantes confirmados!</h2>
+{% endif %}
 {% endblock %}
