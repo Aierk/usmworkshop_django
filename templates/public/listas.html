@@ -3,22 +3,28 @@
 {% if personas %}
 <h1>Personas Confirmadas</h1>
 <table>
- <thead>
+<!--
+ <thead >
   <tr>
   <th>Nombre</th>
-  <th>Correo</th>
   <th>Habilidad</th>
   <th>Grupo</th>
   </tr>
   </thead>
+-->
  <tbody>
 {% for persona in personas %}
   <tr>
-  <th>{{ persona.nombre }} {{ persona.apellido }}</th>
-  <th>{{ persona.email_enc }}</th>
+  <th width=25%>{{ persona.nombre }} {{ persona.apellido }}</th>
+  <th>{{ persona.equipo }}</th>
+  <th><strong>Confirmado!</strong></th>
+  </tr>
+  
+<!--  <tr>
   <th>{{ persona.get_skill_display }}</th>
   <th>{{ persona.equipo }}</th>
-  </tr>
+  </tr>-->
+  <tr><th></th><th></th></tr>
 {% endfor %}
  </tbody>
 </table>

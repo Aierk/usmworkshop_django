@@ -73,12 +73,13 @@ class RegistroForm(forms.Form):
 	nombre = forms.CharField(max_length=20, required=False, help_text='Tu Nombre.')
 	apellido = forms.CharField(max_length=20, required=False, help_text='Tu Apellido.')
 	email = forms.CharField(required=False, help_text='Correo de contancto.')
-	rut  = forms.CharField(required=False, help_text='Con guion y sin puntos.')
-	fono = forms.CharField(max_length=15, required=True, help_text='Telefono de contacto.')
-	org = forms.CharField(max_length=50, label='Organización de origen', initial="Ninguno",required=False)
-	equipo = forms.CharField(max_length=50, required=False, label='Nombre de tu equipo',initial="Ninguno", help_text="Si posees uno")
-	skill = forms.ChoiceField(choices=SKILLS_CHOICES, initial='n',label='Habilidad principal', help_text="Que trabajo prefieres hacer?")
-	notebook = forms.BooleanField(initial=False,required=False,label='Llevas tu propio PC?',help_text='Solo Laptos por favor.')
+	rut  = forms.CharField(required=False, help_text='Con guión y sin puntos.')
+	fono = forms.CharField(max_length=15, required=True, help_text='Teléfono de contacto.')
+	org = forms.CharField(max_length=50, label='Organización', initial="Ninguno",required=False,help_text="Universidad, empresa o colegio")
+	equipo = forms.CharField(max_length=50, required=False, label='Nombre de tu equipo',initial="Ninguno", help_text="Se puede formar en el evento.")
+	skill = forms.ChoiceField(choices=SKILLS_CHOICES, initial='n',label='Habilidad principal', help_text="¿Qué trabajo prefieres hacer?")
+	notebook = forms.BooleanField(initial=False,required=False,label='¿Llevas tu propio PC?',help_text='Seria ideal que lo hicieras.')
+	estudiante = forms.BooleanField(initial=True,required=False,label='¿Eres estudiante?')
 	
 	def clean(self):
 		data = self.cleaned_data
@@ -124,8 +125,9 @@ class RegistroForm(forms.Form):
 		notebook = data.get("notebook")
 		equipo = data.get("equipo")
 		skill = data.get("skill")
+		estudiante = data.get("estudiante")
 		code = CodeGen()
-		p = Perfil(nombre=nombre,apellido=apellido,rut=rut,fono=fono,organizacion=organizacion,notebook=notebook,equipo=equipo,skill=skill,code=code, email=email)
+		p = Perfil(nombre=nombre,apellido=apellido,rut=rut,fono=fono,organizacion=organizacion,notebook=notebook,equipo=equipo,skill=skill,code=code, email=email, estudiante=estudiante)
 		p.save()
 
 def Registro(request):
@@ -148,8 +150,8 @@ def Registro(request):
 
 ## -- Pago
 class PagoForm(forms.Form):
-	email = forms.CharField(required=False)
-	code  = forms.CharField(required=False)
+	email = forms.CharField(required=False,label='Correo de inscripción')
+	code  = forms.CharField(required=False,label='Código')
 	file  = forms.FileField(widget=forms.FileInput, required=False,label="Comprobante")
 
 	def clean(self):
@@ -210,4 +212,10 @@ def Home(request):
 ## -- Lugar
 def Lugar(request):
 	t = get_template('public/lugar.html')
+	return HttpResponse(t.render(Context()))
+
+
+## -- Requisitos
+def Requisitos(request):
+	t = get_template('public/requisitos.html')
 	return HttpResponse(t.render(Context()))

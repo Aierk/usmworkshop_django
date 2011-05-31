@@ -5,10 +5,12 @@ from django.contrib import admin
 
 SKILLS_CHOICES = (
 	('n','Nada en Particular'),
-	('d','Diseñador'),
-	('a','Artista'),
+	('d','Diseñador de Juego o Niveles'),
+	('a','Artista 3D'),
 	('c','Programador'),
+	('i','Ilustrador'),
 	('m','Compositor Musical'),
+	
 	)
 
 PAGO_CHOICES = (
@@ -30,6 +32,7 @@ class Perfil(models.Model):
 	pago = models.CharField(max_length=1, blank=True, default='n', choices=PAGO_CHOICES)
 	reg_date = models.DateTimeField(auto_now_add=True)
 	code = models.CharField(max_length=5)
+	estudiante = models.BooleanField(default=True)
 
 	def __unicode__(self):
 		return u'%s %s <%s>' % (self.nombre, self.apellido, self.email)

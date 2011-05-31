@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
-from main.views import Registro, Pago, Lista, Home, Lugar
+from main.views import Registro, Pago, Lista, Home, Lugar, Requisitos
 
 admin.autodiscover()
 
@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'^pago/', Pago),
     url(r'^lista/', Lista),
     url(r'^lugar/', Lugar),
+    url(r'^requisitos/', Requisitos),
 					  
 )
